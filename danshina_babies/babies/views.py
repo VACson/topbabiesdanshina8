@@ -12,7 +12,7 @@ class BabyDetail(APIView):
     @staticmethod
     def get_object(baby_id):
         try:
-            return Baby.objects.filter(id=baby_id)
+            return Baby.objects.get(id=baby_id)
         except Exception as e:
             logger.error(e)
             raise Http404
@@ -23,9 +23,43 @@ class BabyDetail(APIView):
             if not result:
                 raise Http404
             logger.debug(result)
-            serializer = BabySerializer(result, many=True)
-            return Response(serializer.data[0])
+            serializer = BabySerializer(result)
+            return Response(serializer.data)
         else:
             raise Http404
 
 
+class AllBabiesDetail(APIView):
+    @staticmethod
+    def get_object():
+        try:
+            return Baby.objects.all()
+        except Exception as e:
+            logger.error(e)
+            raise Http404
+
+    def get(self, request, format=None):
+        result = self.get_object()
+        if not result:
+            raise Http404
+        logger.debug(result)
+        serializer = BabySerializer(result, many=True)
+        return Response(serializer.data)
+
+
+class ConfirmedBabiesDetail(APIView):
+    @staticmethod
+    def get_object():
+        try:
+            return Baby.objects.filter(is_confirmed=True)
+        except Exception as e:
+            logger.error(e)
+            raise Http404
+
+    def get(self, request, format=None):
+        result = self.get_object()
+        if not result:
+            raise Http404
+        logger.debug(result)
+        serializer = BabySerializer(result, many=True)
+        return Response(serializer.data)

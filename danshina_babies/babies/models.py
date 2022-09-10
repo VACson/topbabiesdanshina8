@@ -8,17 +8,18 @@ from django.core.files.uploadedfile import InMemoryUploadedFile
 
 class Baby(models.Model):
     id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=30, null=False)
     is_confirmed = models.BooleanField(default=False)
     description = models.CharField(max_length=255, null=True, blank=True)
     rating = models.PositiveIntegerField(default=0, null=False)
     image = models.ImageField(upload_to='uploads/babies/', null=False)
-    telegram_id = models.CharField(max_length=20, null=False)
+    telegram_username = models.CharField(max_length=20, null=False)
 
     class Meta:
         db_table = 'baby'
 
     def __str__(self):
-        return str(f'id: {self.id}, rating: {self.rating}')
+        return str(f'id: {self.id}, {self.name}, {self.telegram_username}')
 
     def save(self, *args, **kwargs):
         super().save()

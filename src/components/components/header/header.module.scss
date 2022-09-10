@@ -1,0 +1,53 @@
+@import '../styles/_colors.scss';
+@import '../styles/normalize';
+.header {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 10vw;
+  background-color: $lightblue;
+  font-family: 'Roboto', 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+.logo {
+  width: 30vw;
+  display: flex;
+  flex-flow: row nowrap;
+  &__img {
+    margin: 1vw;
+    width: 8vw;
+    height: 8vw;
+  }
+  &__text {
+    color: $white;
+    padding-top: 1vw;
+    font-size: 2vw;
+    font-weight: bold;
+  }
+}
+.navbar {
+  display: flex;
+  width: 70vw;
+  justify-content: space-around;
+  list-style: none;
+  font-size: 4vw;
+  height: 100%;
+  margin: 0;
+  &__item {
+    box-sizing: border-box;
+    height: 100px;
+    text-align: center;
+    padding-top: 3%;
+    line-height: 100%;
+    text-decoration: none;
+    color: $white;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+}
+.active {
+  color: #fcd900;
+}
+a {
+  color: $white;
+  text-decoration: none;
+}

@@ -15,3 +15,22 @@ class BabySerializer(serializers.ModelSerializer):
             "get_image",
             "telegram_username"
         )
+
+
+class BabyInputSerializer(serializers.ModelSerializer):
+    image = serializers.ImageField(
+        max_length=None,
+        use_url=True
+    )
+
+    class Meta:
+        model = Baby
+        fields = (
+            "name",
+            "description",
+            "image",
+            "telegram_username"
+        )
+
+    def create(self, validated_data):
+        return Baby.objects.create(**validated_data)

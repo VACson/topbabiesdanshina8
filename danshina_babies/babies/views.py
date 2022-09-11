@@ -1,9 +1,10 @@
 from django.http import Http404, HttpResponseServerError
-from rest_framework.decorators import api_view
+from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Baby
 from .serializers import BabySerializer
+from rest_framework.parsers import MultiPartParser, FormParser
 
 from loguru import logger
 
@@ -63,3 +64,17 @@ class ConfirmedBabiesDetail(APIView):
         logger.debug(result)
         serializer = BabySerializer(result, many=True)
         return Response(serializer.data)
+
+
+class BabyUpload(APIView):
+    parser_classes = (MultiPartParser, FormParser)
+
+    def post(self, request, format=None):
+        serializer = BabySerializer(data=request.data)
+        logger.debug(serializer)
+
+        if serializer.is_valid():
+            serializer.save(image=request.data.get('image'))
+            logger.debug("success")
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -6,4 +6,5 @@ urlpatterns = [
     path('babies/<baby_id>/', views.BabyDetail.as_view()),
     path('babies/', views.AllBabiesDetail.as_view()),
     path('babies-confirmed/', views.ConfirmedBabiesDetail.as_view()),
+    path('baby/', views.BabyUpload.as_view())
 ]

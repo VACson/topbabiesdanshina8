@@ -14,6 +14,7 @@ develop-eggs/
 dist/
 downloads/
 danshina_babies/media
+danshina_babies/babies/migrations
 eggs/
 .eggs/
 lib/

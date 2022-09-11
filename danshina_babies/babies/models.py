@@ -4,6 +4,7 @@ from io import BytesIO
 from PIL import Image
 from pathlib import Path
 from django.core.files.uploadedfile import InMemoryUploadedFile
+from django.utils.safestring import mark_safe
 
 
 class Baby(models.Model):
@@ -26,13 +27,7 @@ class Baby(models.Model):
         img = Image.open(self.image.path)
         width, height = img.size
 
-        '''if width > 300 and height > 300:
-            # keep ratio but shrink down
-            img.thumbnail((width, height))'''
-
-        # check which one is smaller
         if height < width:
-            # make square by cutting off equal amounts left and right
             left = (width - height) // 2
             right = (width + height) // 2
             top = 0
@@ -40,15 +35,11 @@ class Baby(models.Model):
             img = img.crop((left, top, right, bottom))
 
         elif width < height:
-            # make square by cutting off bottom
             left = 0
             right = width
             top = 0
             bottom = width
             img = img.crop((left, top, right, bottom))
-
-        '''if width > 300 and height > 300:
-            img.thumbnail((300, 300))'''
 
         img.save(self.image.path)
 
@@ -56,3 +47,10 @@ class Baby(models.Model):
         if self.image:
             return 'http://127.0.0.1:8000' + self.image.url
         return ''
+
+    def image_preview(self):
+        return mark_safe(u'<img width="300" src="%s" />' % self.get_image())
+
+    image_preview.short_description = 'Image preview'
+    image_preview.allow_tags = True
+

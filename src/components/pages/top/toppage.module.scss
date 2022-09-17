@@ -1,0 +1,17 @@
+.toppage {
+  width: 100%;
+  padding: 0 50px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+@media screen and (max-width: 1199px) {
+  .toppage {
+    padding: 5px 20px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .toppage {
+    padding: 0 10px;
+  }
+}

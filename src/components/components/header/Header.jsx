@@ -1,10 +1,10 @@
-import React from 'react';
-import { Outlet, NavLink } from 'react-router-dom';
-import logo from '../../../assets/img/logo.png';
-import styles from './header.module.scss';
+import React from "react";
+import { Outlet, NavLink } from "react-router-dom";
+import logo from "../../../assets/img/logo.png";
+import styles from "./header.module.scss";
 
 function Header() {
-  const headerItems = ['battle', 'top', 'donaters'];
+  const headerItems = ['battle', "top", "donaters"];
   return (
     <>
       <header className={styles.header}>
@@ -18,7 +18,8 @@ function Header() {
               <NavLink
                 to={`/${item}`}
                 key={index}
-                className={({ isActive }) => (isActive ? styles.active : '')}>
+                className={({ isActive }) => (isActive ? styles.active : "")}
+              >
                 {item}
               </NavLink>
             </li>

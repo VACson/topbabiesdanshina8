@@ -1,10 +1,61 @@
 .wrapper {
   display: flex;
+  flex-flow: row nowrap;
   justify-content: center;
-  max-width: 100%;
+  width: 100vw;
 }
 
 .photo {
-  width: 49vw;
-  height: 79vh;
+  width: 50%;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  &__container {
+    height: 90vh;
+    width: 100%;
+    position: relative;
+  }
+  &__blur {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    filter: blur(10px);
+  }
+  &__heart {
+    position: absolute;
+    width: 30%;
+    top: 60%;
+    left: 35%;
+    z-index: 1;
+  }
+}
+@media screen and (max-width: 767px) {
+  .wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  .photo {
+    width: 50%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    &__container {
+      height: 89vh;
+      width: 100%;
+      position: relative;
+    }
+    &__blur {
+      width: 100vw;
+      object-fit: cover;
+      height: 100vw;
+      filter: blur(10px);
+    }
+    &__heart {
+      position: absolute;
+      width: 30%;
+      top: 60%;
+      left: 35%;
+      z-index: 1;
+    }
+  }
 }

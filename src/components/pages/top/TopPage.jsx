@@ -15,15 +15,26 @@ function TopPage() {
         <div>Loading...</div>
       ) : data ? (
         <>
-          <TopGirlCard data={data.slice(0, 4)} />
-          {data.map(
-            (babie, index) =>
+          <TopGirlCard data={data.babies_remain.slice(0, 4)} />
+          {data.babies_remain.map(
+            (girl, index) =>
               index > 2 && (
                 <GirlCard
-                  rating={babie.rating}
+                  rating={girl.rating}
                   place={index + 1}
-                  key={index}
-                  img={babie.get_image}
+                  key={girl.baby.id}
+                  img={girl.baby.get_image}
+                />
+              ),
+          )}
+          {data.babies_leave.map(
+            (girl, index) =>
+              index > 2 && (
+                <GirlCard
+                  rating={girl.rating}
+                  place={''}
+                  key={girl.baby.id}
+                  img={girl.baby.get_image}
                 />
               ),
           )}

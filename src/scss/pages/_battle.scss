@@ -1,0 +1,94 @@
+.wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 98vw;
+  height: 90vh;
+}
+
+.photo {
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: 0.5s;
+  &__active {
+    transition: 0.5s;
+    width: 100%;
+    height: 100%;
+  }
+  &__container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+  &__blur {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    filter: blur(10px);
+    transition: 2s;
+  }
+  &__heart {
+    position: absolute;
+    width: 25%;
+    top: 60%;
+    left: 37.5%;
+    z-index: 1;
+    transition: 1s;
+    pointer-events: all;
+    &:hover {
+      transform: scale(1.1);
+    }
+    &__active {
+      animation: wiggle 1.5s linear infinite;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  .photo {
+    height: 60vw;
+    width: 60vw;
+    &__container {
+      height: 47.5vh;
+      width: 100%;
+      position: relative;
+    }
+    &__active {
+      transition: 0.5s;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+@keyframes wiggle {
+  0%,
+  7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%,
+  100% {
+    transform: rotateZ(0);
+  }
+}

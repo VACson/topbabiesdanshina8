@@ -4,7 +4,7 @@ import Header from './components/components/header/Header';
 import AddCard from './components/components/login/AddCard';
 import UserRole from './components/components/login/UserRole';
 import { Home, BattlePage, TopPage, DonatersPage } from './components/pages';
-import './App.css';
+import './scss/app.scss';
 
 function App() {
   return (

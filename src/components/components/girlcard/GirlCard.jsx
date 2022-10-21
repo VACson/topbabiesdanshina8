@@ -1,15 +1,13 @@
 import React from 'react';
-import logo from '../../../assets/img/logo.png';
-import styles from './girlcard.module.scss';
 
 function GirlCard({ place, rating, img }) {
   return (
-    <div className={styles.girlcard}>
-      <div className={styles.girlcard__jumbotron}>
-        <img className={styles.girlcard__photo} src={img} alt={rating}></img>
-        <span className={styles.girlcard__place}>#{place}</span>
+    <div className="girlcard">
+      <div className="girlcard__jumbotron">
+        <img className="girlcard__photo" src={img} alt={rating}></img>
+        <span className="girlcard__place">#{place}</span>
       </div>
-      <span className={styles.girlcard__rating}>{rating}</span>
+      <span className="girlcard__rating">{rating}</span>
     </div>
   );
 }

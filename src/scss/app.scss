@@ -1,0 +1,10 @@
+@import './variables';
+@import './pages/index.scss';
+@import './components/index.scss';
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}

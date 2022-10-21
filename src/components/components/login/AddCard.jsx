@@ -28,6 +28,7 @@ function AddCard() {
     <div key={file.name}>
       <div>
         <img
+          className="preview"
           src={file.preview}
           onLoad={() => {
             URL.revokeObjectURL(file.preview);
@@ -47,16 +48,22 @@ function AddCard() {
   };
 
   return (
-    <div>
-      <section className="container">
-        <div {...getRootProps({ className: 'dropzone' })}>
+    <div className="addcardpage">
+      <div className="container">
+        <section className="dropzone">
+          <div>{thumbs}</div>
+        </section>
+      </div>
+      <div className="container">
+        {/* <div>add description</div> */}
+        <div {...getRootProps({ className: `dropzone__field` })}>
           <input {...getInputProps()} />
           <p>Drag 'n' drop some files here, or click to select files</p>
         </div>
-        <aside>{thumbs}</aside>
-      </section>
-      <div>add description</div>
-      <button onClick={() => addCard()}>add your questionnaire</button>
+        <button onClick={() => addCard()} className="button">
+          Додати бейбу
+        </button>
+      </div>
     </div>
   );
 }

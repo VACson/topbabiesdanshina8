@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './donaterspage.module.scss';
 
 function DonatersPage() {
   const ALL_DONATERS = [
@@ -16,22 +15,23 @@ function DonatersPage() {
   );
   const lastdonation = ALL_DONATERS.pop();
   return (
-    <div className={styles.donaterspage}>
+    <div className="donaterspage">
       <div
-        className={`${styles.donater__block} ${styles.donater__block__jumbotron} ${styles.donater__block__jumbotron__topdonat}`}>
-        <span>НАЙБІЛЬШИЙ ДОНАТ</span>
-        <span className={styles.donater__item}>{topdonater.name}</span>
-        <span className={styles.donater__item}>{topdonater.sum}</span>
+        className={`donater__block donater__block__jumbotron donater__block__jumbotron__topdonat`}>
+        <span className="donater__item__head">НАЙБІЛЬШИЙ ДОНАТ</span>
+        <span className="donater__item">{topdonater.name}</span>
+        <span className="donater__item">{topdonater.sum}</span>
       </div>
-      <div className={`${styles.donater__block} ${styles.donater__block__jumbotron}`}>
-        <span>ОСТАННІЙ ДОНАТ</span>
-        <span className={styles.donater__item}>{lastdonation.name}</span>
-        <span className={styles.donater__item}>{lastdonation.sum}</span>
+      <div
+        className={`donater__block donater__block__jumbotron donater__block__jumbotron__lastdonat`}>
+        <span className="donater__item__head">ОСТАННІЙ ДОНАТ</span>
+        <span className="donater__item">{lastdonation.name}</span>
+        <span className="donater__item">{lastdonation.sum}</span>
       </div>
       {ALL_DONATERS.map((person, index) => (
-        <div className={styles.donater__block} key={index}>
-          <span className={styles.donater__item}>{person.name}</span>
-          <span className={styles.donater__item}>{person.sum}</span>
+        <div className="donater__block" key={index}>
+          <span className="donater__item">{person.name}</span>
+          <span className="donater__item">{person.sum}</span>
         </div>
       ))}
     </div>

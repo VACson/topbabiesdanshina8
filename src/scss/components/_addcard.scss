@@ -1,0 +1,54 @@
+.addcardpage {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  background: #1c0231;
+}
+.container {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+.dropzone {
+  width: 45vw;
+  height: 85vh;
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    #000000 0%,
+    #684f7c 49.48%,
+    #85659e 62.5%,
+    #a67ec5 77.08%,
+    rgba(110, 79, 138, 0.953616) 85.94%,
+    rgba(23, 5, 46, 0.88) 99.99%,
+    rgba(108, 17, 123, 0) 100%
+  );
+  &__field {
+    width: 60%;
+    height: 4.4vh;
+    background: rgba(29, 29, 29, 0.75);
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+  }
+}
+.preview {
+  position: absolute;
+  width: 20vw;
+  height: 20vw;
+  border-radius: 10vw;
+  margin: 5vw 0 0 5vw;
+  object-fit: cover;
+}
+.button {
+  width: 60%;
+  height: 5vh;
+  background: linear-gradient(180deg, #9f5ad5 0%, #2c004f 100%);
+  box-shadow: 2px 10px 15px #000000;
+}

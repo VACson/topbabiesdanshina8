@@ -1,11 +1,9 @@
-@import '../styles/_colors.scss';
-@import '../styles/normalize';
 .header {
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
   height: 5vw;
-  background-color: $lightblue;
+  background: linear-gradient(180deg, rgba(68, 32, 126, 0.63) 14.58%, #4c1a73 72.92%);
   font-family: 'Roboto', 'Segoe UI', Tahoma, Verdana, sans-serif;
 }
 .logo {
@@ -21,7 +19,7 @@
     color: $white;
     padding-top: 1vw;
     font-size: 1vw;
-    font-weight: bold;
+    font-weight: 500;
   }
 }
 .navbar {
@@ -41,11 +39,12 @@
     text-decoration: none;
     color: $white;
     text-transform: uppercase;
-    font-weight: 800;
+    font-weight: 300;
   }
 }
 .active {
   color: #fcd900;
+  font-weight: 600;
 }
 a {
   color: $white;

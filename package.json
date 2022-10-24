@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "fs": "^0.0.1-security",
     "gapi-script": "^1.2.0",
+    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-app-rewired": "^2.2.1",
     "react-dom": "^18.2.0",

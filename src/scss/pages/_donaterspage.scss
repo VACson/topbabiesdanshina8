@@ -1,0 +1,17 @@
+.donaterspage {
+  width: 60%;
+  height: 60vh;
+  margin: 5% 20%;
+  background-color: #fff;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 4vw;
+  font-weight: bold;
+  border-radius: 5vh;
+  &__placeholder {
+    padding: 20px;
+    height: fit-content;
+  }
+}

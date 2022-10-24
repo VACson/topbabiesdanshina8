@@ -1,26 +1,29 @@
-import React from "react";
-import { Outlet, NavLink } from "react-router-dom";
-import logo from "../../../assets/img/logo.png";
-import styles from "./header.module.scss";
+import React from 'react';
+import { Outlet, NavLink } from 'react-router-dom';
+import logo from '../../../assets/img/logo.png';
 
 function Header() {
-  const headerItems = ['battle', "top", "donaters"];
+  const headerItems = [
+    { url: 'battle', value: 'Голосування' },
+    { url: 'top', value: 'Топ дівчат Очка' },
+    { url: 'donaters', value: 'Спонсори' },
+  ];
+
   return (
     <>
-      <header className={styles.header}>
-        <div className={styles.logo}>
-          <img src={logo} className={styles.logo__img} alt="logo" />
-          <span className={styles.logo__text}>TOP BABIES DANSHINA 8</span>
+      <header className="header font-inter">
+        <div className="logo">
+          <img src={logo} className="logo__img" alt="logo" />
+          <span className="logo__text">TOP BABIES DANSHINA 8</span>
         </div>
-        <ul className={styles.navbar}>
+        <ul className="navbar">
           {headerItems.map((item, index) => (
-            <li className={styles.navbar__item} key={index}>
+            <li className="navbar__item" key={index}>
               <NavLink
-                to={`/${item}`}
+                to={`/${item.url}`}
                 key={index}
-                className={({ isActive }) => (isActive ? styles.active : "")}
-              >
-                {item}
+                className={({ isActive }) => (isActive ? 'active' : '')}>
+                {item.value}
               </NavLink>
             </li>
           ))}

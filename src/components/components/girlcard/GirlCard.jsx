@@ -1,15 +1,22 @@
 import React from 'react';
-import logo from '../../../assets/img/logo.png'
-import styles from './girlcard.module.scss'
 
-function GirlCard({ place, rating }) {
-  return <div className={styles.girlcard}>
-    <div className={styles.girlcard__jumbotron}>
-      <img className={styles.girlcard__photo} src={logo} alt={rating}></img>
-      <span className={styles.girlcard__place}>#{place}</span>
+function GirlCard({ place, rating, img }) {
+  const likes = [' лайк', ' лайка', ' лайків'];
+  const dynamicLikesCounter = rating < 2 ? likes[0] : rating < 5 ? likes[1] : likes[2];
+  return (
+    <div className="girlcard  font-inter">
+      <div className="girlcard__jumbotron">
+        <img className="girlcard__photo" src={img} alt={rating}></img>
+        <span className="girlcard__place">#{place}</span>
+      </div>
+      <div className="girlcard__jumbotron">
+        <span className="girlcard__rating">
+          {rating}
+          {dynamicLikesCounter}
+        </span>
+      </div>
     </div>
-    <span className={styles.girlcard__rating}>{rating}</span>
-  </div>;
+  );
 }
 
 export default GirlCard;

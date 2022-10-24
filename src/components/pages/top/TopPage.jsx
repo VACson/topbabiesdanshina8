@@ -1,43 +1,64 @@
 import React from 'react';
 import GirlCard from '../../components/girlcard/GirlCard';
 import TopGirlCard from '../../components/girlcard/TopGirlCard';
-import styles from './toppage.module.scss';
+// import { useGetAllBabiesQuery } from '../../../store/babiesAPI';
+import { useSelector } from 'react-redux';
 
 function TopPage() {
-  const ALL_BABIES = [
-    {
-      rating: 1488,
+  // const { data, error, isLoading } = useGetAllBabiesQuery();
+  // const data = useSelector((state) => state.babiesTop);
+  let unsortedBabies = [...useSelector((state) => state.babiesTop)];
+  const sortedBabies = unsortedBabies.sort((a, b) => (a.likes > b.likes ? 1 : -1)).reverse();
 
-      description:
-        'ТОП 1  БЕЙБОЧКА НАЙКРАЩОГО ГУРТОЖИТКА ІН ЗЕ ВОРДЛ, ТУТ ПОВИННО БУТИ НАПИСАНО ЩОСЬ ПРО НЕЇ, АЛЕ ПОКИ ЩО НЕВІДОМО ХТО Ж ЦЯ ОСОБА)',
-    },
-    {
-      rating: 1440,
-      description:
-        'ДРУГЕ МІСЦЕ ЦЕ НЕ СИНОНІМ ПОРАЗКИ, ЦЕ ЛИШЕ ОЗНАЧАЄ, ЩО У КІЛЬКОХ ЛЮДЕЙ ПОГАНИЙ СМАК, І ЦЕ ТОЧНО НЕ ТІ, ХТО ГОЛОСУВАВ ЗА ЦЮ БЕЙБУ',
-    },
-    {
-      rating: 1400,
-      description:
-        'НАЙКРАЩІ ЛЮДИ ЗАВЖДИ ОТРИМУВАЛИ ТРІЙКИ, ТОМУ ЩО ПІСЛЯ НИХ ВОНИ ЗАДУМУЮТЬСЯ І РОБЛЯЬ СЕБЕ КРАЩЕ)',
-    },
-    { rating: 322 },
-    { rating: 288 },
-    { rating: 228 },
-    { rating: 220 },
-    { rating: 200 },
-    { rating: 188 },
-    { rating: 160 },
-    { rating: 100 },
-  ];
-  const topGirls = ALL_BABIES.slice(0, 4);
+  // console.log(data);
   return (
-    <div className={styles.toppage}>
-      <TopGirlCard top={topGirls} />
-      {ALL_BABIES.map(
-        (babie, index) =>
-          index > 2 && <GirlCard rating={babie.rating} place={index + 1} key={index} />,
-      )}
+    <div className="toppage">
+      {
+        // error ? (
+        //   console.log(error)
+        // ) : isLoading ? (
+        //   <div>Loading...</div>
+        // ) : data ?
+        <>
+          {/* <TopGirlCard data={data.babies_remain.slice(0, 4)} /> */}
+
+          {/* {data.babies_remain.map(
+            (girl, index) =>
+              index > 2 && (
+                <GirlCard
+                  rating={girl.rating}
+                  place={index + 1}
+                  key={girl.baby.id}
+                  img={girl.baby.get_image}
+                />
+              ),
+          )} */}
+          {/* {data.babies_leave.map(
+            (girl, index) =>
+              index > 2 && (
+                <GirlCard
+                  rating={girl.rating}
+                  place={''}
+                  key={girl.baby.id}
+                  img={girl.baby.get_image}
+                />
+              ),
+          )} */}
+          <TopGirlCard data={sortedBabies.slice(0, 3)} />
+          {sortedBabies.map(
+            (girl, index) =>
+              index > 2 && (
+                <GirlCard
+                  rating={girl.likes}
+                  place={index + 1}
+                  key={girl.babieID}
+                  img={girl.babieID}
+                />
+              ),
+          )}
+        </>
+        //  : null
+      }
     </div>
   );
 }

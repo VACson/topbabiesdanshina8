@@ -1,10 +1,25 @@
 @import './variables';
+@import './fonts';
 @import './pages/index.scss';
 @import './components/index.scss';
 *,
 *::after,
-*::before {
+*::before,
+div,
+input {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+body {
+  background: $black;
+}
+input,
+button,
+select,
+option {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  background: inherit;
 }

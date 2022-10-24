@@ -1,12 +1,13 @@
 import React from 'react';
 import { ALL__BABIES } from '../../../assets/img/babies/ALLBABIES';
 import heart from '../../../assets/img/heart.svg';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { updateBabie } from '../../../store/babiesTopTest/babiesTop';
 
 function BattlePage() {
+  const navigate = useNavigate();
   const photos = ALL__BABIES.sort(() => Math.random() - 0.5);
   const [likeCount, setLikeCount] = React.useState(0);
   const [currentBabies, setCurrentBabies] = React.useState([
@@ -22,11 +23,10 @@ function BattlePage() {
     first: ``,
     second: ``,
   });
-  // const navigate = useNavigate();
   const dispatch = useDispatch();
   const likeBabie = (id, babieID) => {
+    dispatch(updateBabie({ babieID, likes: 1 }));
     setTimeout(() => {
-      dispatch(updateBabie({ babieID, likes: 1 }));
       setActiveHeartClick({
         ...activeHeartClick,
         [id]: `photo__heart__active`,
@@ -42,42 +42,43 @@ function BattlePage() {
       setLikedBabies((likedBabies) => [...likedBabies, id]);
       setActivePhotoClick({ ...activePhotoClick, [id]: `` });
       setLikeCount((likeCount) => likeCount + 2);
-    }, 1500);
-    setTimeout(() => {
       setActiveHeartClick({ ...activeHeartClick, [id]: `` });
-    }, 3000);
+    }, 1500);
+    setTimeout(() => {}, 3000);
   };
-
-  React.useEffect(() => {
-    // console.log('stylesArr', stylesArr, photos);
-    likedBabies.length > 14 || likedBabies.length === 15
-      ? window.location.reload(false)
-      : console.log('liked', likedBabies, 'style', activeHeartClick);
-  }, []);
+  React.useEffect(
+    () => {
+      likedBabies.length > 14 || likedBabies.length === 15 ? navigate('/top') : null;
+    }, // eslint-disable-next-line
+    [likedBabies],
+  );
   return (
     <div>
       {likeCount < 30 && (
         <div className="wrapper">
           <div className="photo__container">
             <img className="photo__blur" src={currentBabies[0]} alt="" />
-            <img
-              src={heart}
-              className={`photo__heart ${activeHeartClick.first}`}
-              onClick={() => likeBabie('first', currentBabies[0])}
-              alt=""
-            />
-            <img className={`photo ${activePhotoClick.first}`} src={currentBabies[0]} alt="" />
+            <div className={`photo__container__block ${activePhotoClick.first}`}>
+              <img className="photo" src={currentBabies[0]} alt="" />
+              <img
+                src={heart}
+                className={`photo__heart ${activeHeartClick.first}`}
+                onClick={() => likeBabie('first', currentBabies[0])}
+                alt=""
+              />
+            </div>
           </div>
           <div className="photo__container">
             <img className="photo__blur" src={currentBabies[1]} alt="" />
-            <img
-              src={heart}
-              className={`photo__heart ${activeHeartClick.second}`}
-              onClick={() => likeBabie('second', currentBabies[1])}
-              alt=""
-            />
-            <img className={`photo ${activePhotoClick.second}`} src={currentBabies[1]} alt="" />
-            <div></div>
+            <div className={`photo__container__block ${activePhotoClick.second}`}>
+              <img className="photo" src={currentBabies[1]} alt="" />
+              <img
+                src={heart}
+                className={`photo__heart ${activeHeartClick.second}`}
+                onClick={() => likeBabie('second', currentBabies[1])}
+                alt=""
+              />
+            </div>
           </div>
         </div>
       )}

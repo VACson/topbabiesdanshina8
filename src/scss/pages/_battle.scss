@@ -4,66 +4,90 @@
   width: 98vw;
   height: 90vh;
 }
-
 .photo {
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   top: 50%;
   left: 50%;
-  position: absolute;
+  position: relative;
   transform: translate(-50%, -50%);
   transition: 0.5s;
-  &__active {
-    transition: 0.5s;
-    width: 100%;
-    height: 100%;
-  }
   &__container {
     height: 100%;
-    width: 100%;
+    width: 50%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
     position: relative;
+    transition: 0.5s;
+    &__block {
+      position: relative;
+      width: 50%;
+      height: 50%;
+      transition: 0.25s;
+    }
+  }
+  &__active {
+    transition: 0.5s;
+    width: 80%;
+    height: 80%;
   }
   &__blur {
+    position: absolute;
+    z-index: -1;
     width: 100%;
     object-fit: cover;
     height: 100%;
-    filter: blur(10px);
+    filter: blur(15px);
+    opacity: 0.5;
     transition: 2s;
   }
   &__heart {
     position: absolute;
-    width: 25%;
-    top: 60%;
-    left: 37.5%;
-    z-index: 1;
-    transition: 1s;
+    bottom: 0;
+    margin-bottom: -50px;
+    width: 100%;
+    height: 40%;
+    transition: 0.5s;
     pointer-events: all;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scale: 1;
     &:hover {
       transform: scale(1.1);
     }
     &__active {
+      scale: 0.5;
+      margin-bottom: 0;
       animation: wiggle 1.5s linear infinite;
     }
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 920px) {
   .wrapper {
     display: flex;
     flex-flow: column nowrap;
   }
   .photo {
-    height: 60vw;
-    width: 60vw;
+    height: 100%;
+    width: 100%;
     &__container {
-      height: 47.5vh;
+      height: 50%;
       width: 100%;
       position: relative;
+      &__block {
+        position: relative;
+        width: 40%;
+        height: 50%;
+      }
     }
     &__active {
       transition: 0.5s;
-      width: 100%;
-      height: 100%;
+      width: 70%;
+      height: 80%;
     }
   }
 }

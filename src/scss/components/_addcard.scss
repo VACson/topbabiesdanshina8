@@ -1,5 +1,5 @@
 .addcardpage {
-  position: absolute;
+  position: relative;
   top: 0;
   z-index: 1;
   width: 100vw;
@@ -22,6 +22,9 @@
     &--description {
       height: 40%;
     }
+    &__field {
+      display: none;
+    }
   }
   &__button {
     width: 60%;
@@ -29,8 +32,13 @@
     color: $white;
     background: linear-gradient(180deg, #9f5ad5 0%, #2c004f 100%);
     box-shadow: 2px 10px 15px #000000;
+    &__crop {
+      width: 100%;
+      height: 5vh;
+    }
   }
 }
+
 .container {
   width: 50%;
   height: 100%;
@@ -68,7 +76,6 @@
     }
     &__item {
       width: 100%;
-      height: 100%;
       object-fit: cover;
       border-radius: 50%;
     }
@@ -108,7 +115,72 @@
   margin: 5%;
   object-fit: cover;
 }
-
+.cropContainer {
+  position: absolute;
+  top: 10%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  height: 70%;
+  min-width: 300px;
+  max-width: 90%;
+  background: linear-gradient(
+    180deg,
+    #000000 0%,
+    #684f7c 49.48%,
+    #85659e 62.5%,
+    #a67ec5 77.08%,
+    rgba(110, 79, 138, 0.953616) 85.94%,
+    rgba(23, 5, 46, 0.88) 99.99%,
+    rgba(108, 17, 123, 0) 100%
+  );
+  border: 5px solid #eee;
+  border-radius: 5px;
+  &__modal {
+    background: linear-gradient(
+      180deg,
+      #000000 0%,
+      #684f7c 49.48%,
+      #85659e 62.5%,
+      #a67ec5 77.08%,
+      rgba(110, 79, 138, 0.953616) 85.94%,
+      rgba(23, 5, 46, 0.88) 99.99%,
+      rgba(108, 17, 123, 0) 100%
+    );
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+  &__controls {
+    // position: absolute;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    bottom: 0;
+    // left: 50%;
+    width: 100%;
+    height: 8vh;
+    margin-bottom: -10vh;
+  }
+}
+.zoom {
+  height: 7px;
+  -webkit-appearance: none;
+  background: #2c004f;
+  border-radius: 5px;
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: ew-resize;
+    box-shadow: 0 0 2px 0 #555;
+  }
+}
 @media screen and (max-width: 1199px) {
   .addcardpage {
     display: flex;

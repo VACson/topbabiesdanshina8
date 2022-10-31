@@ -1,14 +1,14 @@
 .wrapper {
   display: flex;
   flex-flow: row nowrap;
-  width: 98vw;
-  height: 90vh;
+  width: 100%;
+  height: 100vh;
 }
 .photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  top: 50%;
+  top: 60%;
   left: 50%;
   position: relative;
   transform: translate(-50%, -50%);
@@ -31,8 +31,8 @@
   }
   &__active {
     transition: 0.5s;
-    width: 80%;
-    height: 80%;
+    width: 70%;
+    height: 70%;
   }
   &__blur {
     position: absolute;
@@ -40,13 +40,12 @@
     width: 100%;
     object-fit: cover;
     height: 100%;
-    filter: blur(15px);
-    opacity: 0.5;
+    filter: blur(15px) opacity(50%) drop-shadow(16px 16px 20px #19043a);
     transition: 2s;
   }
   &__heart {
     position: absolute;
-    bottom: 0;
+    bottom: -10%;
     margin-bottom: -50px;
     width: 100%;
     height: 40%;
@@ -86,8 +85,8 @@
     }
     &__active {
       transition: 0.5s;
-      width: 70%;
-      height: 80%;
+      width: 60%;
+      height: 65%;
     }
   }
 }

@@ -30,7 +30,7 @@ function AddCard() {
   const showCroppedImage = useCallback(async () => {
     try {
       const croppedImage = await getCroppedImg(imageSrc, croppedAreaPixels);
-      console.log('donee', { croppedImage });
+      // console.log('donee', { croppedImage });
       setCroppedImage(croppedImage);
     } catch (e) {
       console.error(e);
@@ -77,7 +77,7 @@ function AddCard() {
           <div className="dropzone__photo">
             <img className="dropzone__photo__item" src={croppedImage} alt="" />
           </div>
-          <span className="dropzone__description">{description}</span>
+          <div className="dropzone__description">{description}</div>
           <div className="dropzone__place">#1</div>
           <div className="dropzone__rating">9999</div>
         </section>
@@ -94,7 +94,7 @@ function AddCard() {
         </label>
         <input type="text" className="addcardpage__input" placeholder="Додайте ім'я" />
         <textarea
-          maxLength={228}
+          maxLength={128}
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}

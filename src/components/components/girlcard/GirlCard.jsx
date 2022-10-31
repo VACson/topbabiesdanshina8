@@ -1,7 +1,7 @@
 import React from 'react';
 
 function GirlCard({ place, rating, img }) {
-  const likes = [' лайк', ' лайка', ' лайків'];
+  const likes = [' вподобайка', ' вподобайки', ' вподобайок'];
   const dynamicLikesCounter = rating < 2 ? likes[0] : rating < 5 ? likes[1] : likes[2];
   return (
     <div className="girlcard  font-inter">

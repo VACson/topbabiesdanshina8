@@ -1,17 +1,35 @@
 .donaterspage {
-  width: 60%;
-  height: 60vh;
-  margin: 5% 20%;
-  background-color: #fff;
+  width: 100%;
+  padding: 10vh 5% 0 5%;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  font-size: 4vw;
+
   font-weight: bold;
-  border-radius: 5vh;
+  // border-radius: 5vh;
   &__placeholder {
     padding: 20px;
     height: fit-content;
+  }
+  &__person {
+    margin: 1vh 0;
+    padding: 2vw 5%;
+    width: 100%;
+    height: fit-content;
+    border-radius: 10px;
+    font-size: 5vh;
+    color: #fff;
+    font-weight: 400;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(180deg, #9f5ad5 0%, #000000 100%);
+    &__name {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 1vw;
+    }
   }
 }

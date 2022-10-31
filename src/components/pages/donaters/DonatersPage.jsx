@@ -1,12 +1,19 @@
 import React from 'react';
+import { donatersData } from './donatersData';
 
 function DonatersPage() {
+  const sortedDonaters = donatersData.sort((a, b) => (a.sum > b.sum ? 1 : -1)).reverse();
   return (
-    <div className="donaterspage">
-      <div className="donaterspage__placeholder font-roboto">
-        Ми ще нічого тут не зробили, але скоро буде класно. Подаруйте нашой дизайнересі чоколадку і
-        це буде швидше &#129392;
-      </div>
+    <div className="donaterspage font-roboto">
+      {sortedDonaters.map((person, index) => (
+        <div className="donaterspage__person" key={index}>
+          <div className="donaterspage__person__name">
+            <div className="donaterspage__person__">{person.firstName}</div>
+            <div className="donaterspage__person__">{person.surName}</div>
+          </div>
+          <div className="donaterspage__person__">{person.sum.toFixed(2)} гривників</div>
+        </div>
+      ))}
     </div>
   );
 }

@@ -7,14 +7,15 @@ const clientId = '567770545795-om6kfdteals4shm8vrf6qoimottrcb9r.apps.googleuserc
 function Login() {
   const navigate = useNavigate();
   const onSuccess = (res) => {
-    console.log(
-      'Login Success.',
+    console
+      .log
+      // 'Login Success.',
       // , res.profileObj
-    );
-    navigate('/battle');
+      ();
+    navigate('/addcard');
   };
   const onFailure = (res) => {
-    navigate('/battle');
+    navigate('/addcard');
     console.log(
       'Login Failer',
       // , res

@@ -1,30 +1,31 @@
 .girlcard {
   width: 16.5vw;
   height: 16.5vw;
+  margin-top: 1%;
   background-color: #16213e;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-evenly;
   text-align: right;
-  padding: 20px;
-  margin: 10px 0;
+  padding: 1.25%;
   box-shadow: 0px 0px 5px #16213e;
+  border-radius: 25%;
   &__gold {
-    width: 34vw;
-    height: 34vw;
+    width: 37%;
+    height: 35vw;
     order: 1;
     background: rgb(22, 33, 62);
     background: linear-gradient(135deg, rgba(22, 33, 62, 1) 0%, rgba(255, 199, 0, 1) 100%);
   }
   &__silver {
-    width: 29vw;
-    height: 29vw;
+    width: 30%;
+    height: 30vw;
     background: rgb(22, 33, 62);
     background: linear-gradient(135deg, rgba(22, 33, 62, 1) 0%, rgba(93, 105, 122, 1) 100%);
   }
   &__bronze {
-    width: 24vw;
-    height: 24vw;
+    width: 25%;
+    height: 25vw;
     order: 2;
     background: rgb(22, 33, 62);
     background: linear-gradient(135deg, rgba(22, 33, 62, 1) 0%, rgba(232, 99, 10, 1) 100%);
@@ -33,6 +34,7 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
+    width: 100%;
     height: 50%;
     &__top {
       display: flex;
@@ -40,7 +42,6 @@
     }
   }
   &__photo {
-    height: 100%;
     width: 50%;
     border-radius: 50%;
     object-fit: cover;
@@ -77,25 +78,29 @@
   width: 100%;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
   align-items: center;
+  gap: 0 3%;
 }
 
 @media screen and (max-width: 1199px) {
   .girlcard {
-    width: 45vw;
+    width: 48.5%;
     height: 45vw;
+    border-radius: 1vh;
     &__gold {
-      width: 95vw;
+      border-radius: 1vh;
+      width: 100%;
       height: 95vw;
       order: 0;
     }
     &__silver {
-      width: 45w;
+      border-radius: 1vh;
+      width: 48.5%;
       height: 45vw;
     }
     &__bronze {
-      width: 45vw;
+      border-radius: 1vh;
+      width: 48.5%;
       height: 45vw;
     }
     &__place {

@@ -1,18 +1,7 @@
 .toppage {
   width: 100%;
-  padding: 10vh 50px;
+  padding: 10vh 2.5%;
   display: flex;
   flex-flow: row wrap;
-  gap: 2.1vw;
-  // justify-content: space-between;
-}
-@media screen and (max-width: 1199px) {
-  .toppage {
-    padding: 7.5vw 20px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .toppage {
-    padding: 15vw 10px;
-  }
+  gap: 3%;
 }

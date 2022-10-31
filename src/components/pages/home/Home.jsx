@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
-import LoginButton from '../../components/login/Login';
+// import LoginButton from '../../components/login/Login';
+import { Link } from 'react-router-dom';
 import { gapi } from 'gapi-script';
 import home1 from '../../../assets/img/home1.jpg';
 import home2 from '../../../assets/img/home2.jpg';
 import home3 from '../../../assets/img/home3.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const clientId = '567770545795-om6kfdteals4shm8vrf6qoimottrcb9r.apps.googleusercontent.com';
 
@@ -17,6 +19,11 @@ function Home() {
     }
     gapi.load('client:auth2', start);
   });
+  const navigate = useNavigate();
+
+  const onClick = () => {
+    navigate('/addcard');
+  };
 
   // const accessToken = gapi.auth.getToken().access_token;
 
@@ -32,7 +39,10 @@ function Home() {
           Завантажуй, оцінюй, знайомся, будь у тренді
         </div>
         <div className="buttonblock">
-          <LoginButton className="button__login"></LoginButton>
+          <Link to="/addcard" className="loginbutton">
+            Увійти
+          </Link>
+          {/* <LoginButton className="button__login"></LoginButton> */}
         </div>
       </div>
     </div>

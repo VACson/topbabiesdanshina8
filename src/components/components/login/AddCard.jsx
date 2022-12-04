@@ -1,10 +1,11 @@
 import React, { useState, useCallback } from 'react';
-import { useDropzone } from 'react-dropzone';
 import { useNavigate } from 'react-router-dom';
 
 import Cropper from 'react-easy-crop';
 import getCroppedImg from './cropImage';
 import { getOrientation } from 'get-orientation/browser';
+
+import { useAddBabyMutation } from '../../../store/babiesAPI';
 
 function AddCard() {
   const navigate = useNavigate();
@@ -14,6 +15,8 @@ function AddCard() {
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
   const [croppedImage, setCroppedImage] = useState(null);
   const [isModalOpen, setModalisOpen] = useState(false);
+
+  const [addBaby, addBabyResult] = useAddBabyMutation();
 
   const ORIENTATION_TO_ANGLE = {
     3: 180,
@@ -67,7 +70,14 @@ function AddCard() {
   const [description, setDescription] = React.useState('');
 
   const addCard = () => {
-    navigate('/battle');
+    addBaby({
+      image: 'img',
+      name: 'name',
+      description: 'description',
+    }).then(() => {
+      console.log(addBabyResult);
+    });
+    // navigate('/battle');
   };
 
   return (

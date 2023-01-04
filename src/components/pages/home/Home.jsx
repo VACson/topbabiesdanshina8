@@ -20,20 +20,13 @@ function Home() {
     }
     gapi.load('client:auth2', start);
   });
-  const navigate = useNavigate();
-
-  const onClick = () => {
-    navigate('/addcard');
-  };
-
-  // const accessToken = gapi.auth.getToken().access_token;
-
+  // const accessToken = gapi.auth.getToken().access_token;s
   return (
     <div className="homepage font-roboto">
       <div className="homepage__container homepage__container--background">
-        <img src={home1} className="homepage__photo" alt="" />
+        {/* <img src={home1} className="homepage__photo" alt="" /> */}
         <img src={home2} className="homepage__photo homepage__photo__desktop" alt="" />
-        <img src={home3} className="homepage__photo" alt="" />
+        {/* <img src={home3} className="homepage__photo" alt="" /> */}
       </div>
       <div className="homepage__container">
         <div className="homepage__jumbotron">DANSHINA 8</div>
@@ -41,7 +34,7 @@ function Home() {
           Завантажуй, оцінюй, знайомся, будь у тренді
         </div>
         <div className="buttonblock">
-          <Link to="/addcard" className="loginbutton">
+          <Link to="/battle" className="loginbutton">
             Увійти
           </Link>
           {/* <LoginButton className="button__login"></LoginButton> */}

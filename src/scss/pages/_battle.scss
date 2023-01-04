@@ -16,14 +16,20 @@
 .photo {
   &__main {
     transition: 0.5s;
-    height: 65%;
+    width: 50%;
+    aspect-ratio: 1;
+    object-fit: cover;
     border-radius: 35%;
+    padding: 1px;
+    transition: all 1s;
     &--active {
+      transform: rotateZ(10deg);
       transition: 0.5s;
       scale: 1.25;
       border-radius: 50%;
     }
   }
+
   &__blur {
     width: 100%;
     position: absolute;
@@ -83,5 +89,13 @@
   40%,
   100% {
     transform: rotateZ(0);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

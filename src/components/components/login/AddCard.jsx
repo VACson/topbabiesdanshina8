@@ -69,11 +69,13 @@ function AddCard() {
   //     'image/heif': ['.heif'],
   const [description, setDescription] = React.useState('');
 
-  const addCard = () => {
+  const addCard = ({ id, image, description, name }) => {
     addBaby({
-      image: 'img',
-      name: 'name',
-      description: 'description',
+      id: id,
+      image: image,
+      likes: 0,
+      description: description,
+      name: name,
     }).then(() => {
       console.log(addBabyResult);
     });
@@ -111,7 +113,16 @@ function AddCard() {
           className="addcardpage__input addcardpage__input--description"
           placeholder="Додайте опис"
         />
-        <button onClick={() => addCard()} className="addcardpage__button">
+        <button
+          onClick={() =>
+            addCard({
+              id: Math.random().toString(),
+              image: croppedImage,
+              description: description,
+              name: 'anya',
+            })
+          }
+          className="addcardpage__button">
           Додати бейбу
         </button>
       </div>

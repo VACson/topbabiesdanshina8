@@ -1,21 +1,27 @@
 .header {
   position: fixed;
   z-index: 1;
-  width: 100%;
+  width: 100svw;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  justify-content: space-between;
   height: 5vw;
-  background: linear-gradient(180deg, rgba(68, 32, 126, 0.63) 14.58%, #4c1a73 72.92%);
 }
 .logo {
-  width: 15vw;
+  height: 5vw;
+  aspect-ratio: 1;
   display: flex;
   flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
   &__img {
-    margin: 0.5vw;
-    width: 4vw;
-    height: 4vw;
+    transition: 1s;
+    width: 5vw;
+    height: 5vw;
+    &:hover {
+      scale: 110%;
+    }
   }
   &__text {
     color: $white;
@@ -26,7 +32,8 @@
 }
 .navbar {
   display: flex;
-  width: 70vw;
+  flex-flow: row nowrap;
+  width: 10vw;
   height: 100%;
   justify-content: space-evenly;
   align-items: center;
@@ -35,7 +42,16 @@
   line-height: 2vw;
   height: 100%;
   margin: 0;
+  background: linear-gradient(180deg, rgba(68, 32, 126, 0.63) 14.58%, #4c1a73 72.92%);
+  border-bottom-left-radius: 10px;
+  transition: 0.5s ease-out;
+  &:hover {
+    width: 20vw;
+    border-radius: 5px;
+  }
   &__item {
+    height: 40%;
+    aspect-ratio: 1;
     text-decoration: none;
     color: $white;
     text-transform: uppercase;
@@ -51,8 +67,36 @@ a {
   text-decoration: none;
 }
 
-@media screen and (max-width: 1199px) {
+@media (max-width: 480px) {
   .header {
-    height: 10vh;
+    height: 5vh;
+    bottom: 0;
+  }
+  .logo {
+    display: none;
+  }
+  .navbar {
+    width: 100%;
+    border-radius: 0;
+    &:hover {
+      width: 100%;
+      border-radius: 0;
+    }
+    &__item {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+@media (min-width: 481px) {
+  .navbar {
+    &__item {
+      &:hover {
+        filter: drop-shadow(1px 1px 5px #fcd900);
+      }
+    }
+  }
+  .active {
+    filter: drop-shadow(1px 1px 5px #fcd900);
   }
 }

@@ -3,41 +3,75 @@
   padding: 13vh 2.5%;
   display: flex;
   flex-flow: row wrap;
-  font-weight: bold;
-  gap: 5%;
-  &__placeholder {
-    padding: 20px;
-    height: fit-content;
+  align-items: center;
+  font-weight: 400;
+  font-size: 40px;
+  color: #eee;
+  &__heading {
+    width: 90%;
+    padding: 2%;
+    text-align: center;
+    color: $lightblue;
+    border-bottom: 2px solid $lightblue;
+    border-radius: 5px;
+    margin: 0 5%;
+    margin-bottom: 20px;
   }
-  &__person {
-    width: 30%;
-    height: 30vh;
-    margin-bottom: 5vh;
-    padding: 2.5%;
-    font-size: 18px;
-    color: #fff;
-    font-weight: 400;
-    display: flex;
-    flex-flow: column wrap;
-    gap: 60%;
-    border-radius: 5%;
-    background: linear-gradient(180deg, #5f04a7 19.69%, rgba(110, 79, 138, 0.953616) 85.94%);
-    box-shadow: 0px 0px 30px rgba(120, 20, 246, 0.99);
-    &__name {
-      display: flex;
-      flex-flow: row nowrap;
-      gap: 1vw;
-      font-size: 36px;
-      height: 30%;
-      line-height: 300%;
+}
+.donater {
+  width: 50%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 20px 5%;
+  border-radius: 30px;
+  background: transparent;
+  transition: 0.4s ease-in-out;
+  &__name {
+    margin-bottom: 30px;
+    &::after {
+      content: 'Поповнення банки';
+      position: absolute;
+      left: 10%;
+      top: 55%;
+      font-size: 32px;
+      opacity: 0.5;
     }
-    &__sum {
-      font-size: 24px;
-      width: 100%;
-      height: 10%;
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-between;
+  }
+  &__sum {
+    display: flex;
+    align-items: flex-end;
+    color: #5cfc00;
+    &--small {
+      font-size: 80%;
+      line-height: 125%;
+      opacity: 0.75;
+    }
+  }
+  &:hover {
+    background: $lightblue;
+  }
+}
+@media (max-width: 480px) {
+  .donaterspage {
+    font-size: 20px;
+    padding: 5% 2.5%;
+  }
+  .donater {
+    width: 100%;
+    border-radius: 10px;
+    &__name {
+      margin-bottom: 20px;
+      &::after {
+        content: 'Поповнення банки';
+        position: absolute;
+        left: 5%;
+        top: 55%;
+        font-size: 16px;
+        opacity: 0.5;
+      }
     }
   }
 }

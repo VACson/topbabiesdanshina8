@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import heart from '../../../assets/img/heart.svg';
+import { Heart } from '../../../assets/img/Heart.jsx';
 import classNames from 'classnames/bind';
 
 function BattlePage() {
@@ -60,11 +60,9 @@ function BattlePage() {
               src={getBabies[0].image}
               alt=""
             />
-            <img
-              src={heart}
+            <Heart
               className={classNames(`heart`, { 'heart--active': photoIsAnimating.first })}
               onClick={() => onLikeClick('first', getBabies[0].id)}
-              alt=""
             />
           </div>
           <div className="battlePage__container">
@@ -76,11 +74,9 @@ function BattlePage() {
               src={getBabies[1].image}
               alt=""
             />
-            <img
-              src={heart}
+            <Heart
               className={classNames(`heart`, { 'heart--active': photoIsAnimating.second })}
               onClick={() => onLikeClick('second', getBabies[1].id)}
-              alt=""
             />
           </div>
         </div>

@@ -1,135 +1,73 @@
 .homepage {
-  width: 100%;
-  height: 100vh;
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 4.5vh;
-  background-color: #16213e;
-  color: #eee;
-  &__jumbotron {
-    position: absolute;
-    width: 100%;
-    height: 50vh;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    font-size: 5vw;
-    font-weight: 800;
-    letter-spacing: 0.355em;
-    background: linear-gradient(180deg, #ffffff 0%, #ffffff 48.44%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    text-shadow: 0px 4px 35px rgba(0, 0, 0, 0.55), 5px 10px 30px #000000;
-    &__second {
-      text-shadow: 2px 10px 20px #000000;
-      position: absolute;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      height: 55vh;
-      font-size: 2vw;
-    }
-  }
-}
-.homepage {
+  width: 100svw;
+  height: 100svh;
   &__container {
-    position: relative;
-    width: 100%;
     height: 100%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    &--background {
-      position: absolute;
-      filter: blur(30px);
-    }
+    width: 100%;
   }
   &__photo {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    margin-top: -12.5%;
+    margin-left: -25%;
     object-fit: cover;
-    object-position: 50% 40%;
-    width: 34.3vw;
-    height: 100%;
-    backdrop-filter: blur(20px);
-    &__desktop {
-      width: 100%;
-    }
   }
-  &__contacts {
-    position: fixed;
-    width: 100%;
-    height: fit-content;
-    bottom: 0;
-    padding: 1% 5%;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    gap: 5%;
-    background: rgba(0, 0, 0, 0.5);
-    text-transform: uppercase;
-    &__link {
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: center;
-      font-size: 28px;
-      font-weight: 500;
+  &__jumbotron {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 4svw;
+    color: #eee;
+    font-weight: bold;
+    filter: drop-shadow(10px 10px 10px black);
+    &__second {
+      font-size: 1.75svw;
+      text-align: center;
+      font-weight: light;
+      margin-top: 4.5svw;
     }
   }
 }
-.buttonblock {
+.loginbutton {
   position: absolute;
-  width: 60%;
-  height: 75vh;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: center;
-  align-items: flex-end;
-}
-.button {
-  width: 45%;
-  height: 12.5vh;
-  background-color: #4d96ff;
-  opacity: 0.75;
-  border-radius: 2px;
-  bottom: 0;
-  &__addButton {
-    background-color: #9fafff;
+  align-items: center;
+  top: 65%;
+  left: 50%;
+  height: 7svw;
+  width: 27svw;
+  user-select: none;
+  transform: translate(-50%);
+  background: linear-gradient(0.75turn, $red, $primary);
+  text-align: center;
+  color: transparent;
+  font-size: 7svw;
+  font-weight: bold;
+  border-radius: 0.5svw;
+  background-clip: text;
+  transition: 0.05s;
+  &:active,
+  &:focus,
+  &:focus-within {
+    font-size: 6svw;
   }
 }
-span,
-button {
-  color: inherit;
-  font-size: inherit;
-  outline: none;
-  border: none;
-}
-
-@media screen and (max-width: 767px) {
+@media (max-width: 480px) {
   .homepage {
     &__jumbotron {
-      font-size: 8vw;
+      font-size: 4svw;
+      top: 50%;
       &__second {
-        font-size: 3vw;
-      }
-    }
-    &__container {
-      height: 100vh;
-    }
-    &__photo {
-      width: 50vw;
-      height: 100vh;
-      width: 100%;
-      display: none !important;
-      filter: blur(2px);
-      backdrop-filter: blur(25px);
-      &__desktop {
-        display: flex !important;
+        margin-top: 5svw;
+        font-size: 2svw;
       }
     }
   }
-  .buttonblock {
-    width: 80%;
+  .loginbutton {
+    top: 57.5%;
   }
 }

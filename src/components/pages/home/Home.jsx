@@ -1,56 +1,26 @@
 import React, { useEffect } from 'react';
-// import LoginButton from '../../components/login/Login';
-import { gapi } from 'gapi-script';
-import home1 from '../../../assets/img/home1.jpg';
-import home2 from '../../../assets/img/home2.jpg';
 import home3 from '../../../assets/img/home3.jpg';
-import telegramIcon from '../../../assets/img/telegramIcon.svg';
-import instagramIcon from '../../../assets/img/instagramIcon.svg';
-import { useNavigate, Link } from 'react-router-dom';
-
-const clientId = '567770545795-om6kfdteals4shm8vrf6qoimottrcb9r.apps.googleusercontent.com';
+import { Start } from '../../../assets/img/Start.jsx';
+import { Link } from 'react-router-dom';
+import { MouseParallaxContainer, MouseParallaxChild } from 'react-parallax-mouse';
 
 function Home() {
-  useEffect(() => {
-    function start() {
-      gapi.client.init({
-        clientId: clientId,
-        scope: '',
-      });
-    }
-    gapi.load('client:auth2', start);
-  });
-  // const accessToken = gapi.auth.getToken().access_token;s
   return (
-    <div className="homepage font-roboto">
-      <div className="homepage__container homepage__container--background">
-        {/* <img src={home1} className="homepage__photo" alt="" /> */}
-        <img src={home2} className="homepage__photo homepage__photo__desktop" alt="" />
-        {/* <img src={home3} className="homepage__photo" alt="" /> */}
+    <MouseParallaxContainer
+      className="homepage font-roboto"
+      globalFactorX={0.1}
+      globalFactorY={0.1}>
+      <MouseParallaxChild factorX={0.3} factorY={0.3} className="homepage__container">
+        <img src={home3} className="homepage__photo" alt="" />
+      </MouseParallaxChild>
+      <div className="homepage__jumbotron">TOP BABIES DANSHINA 8</div>
+      <div className="homepage__jumbotron homepage__jumbotron__second">
+        Бери участь, оцінюй, насолоджуйся
       </div>
-      <div className="homepage__container">
-        <div className="homepage__jumbotron">DANSHINA 8</div>
-        <div className="homepage__jumbotron__second">
-          Завантажуй, оцінюй, знайомся, будь у тренді
-        </div>
-        <div className="buttonblock">
-          <Link to="/battle" className="loginbutton">
-            Увійти
-          </Link>
-          {/* <LoginButton className="button__login"></LoginButton> */}
-        </div>
-        <div className="homepage__contacts font-roboto">
-          <Link to="/" className="homepage__contacts__link">
-            <img src={telegramIcon} alt="" />
-            Telegram
-          </Link>
-          <Link to="/" className="homepage__contacts__link">
-            <img src={instagramIcon} alt="" />
-            Instagram
-          </Link>
-        </div>
-      </div>
-    </div>
+      <Link to="/battle" className="loginbutton font-roboto">
+        СТАРТ <Start />
+      </Link>
+    </MouseParallaxContainer>
   );
 }
 

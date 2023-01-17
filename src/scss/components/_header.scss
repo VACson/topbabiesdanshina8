@@ -7,6 +7,9 @@
   align-items: center;
   justify-content: space-between;
   height: 5vw;
+  &--hidden {
+    display: none;
+  }
 }
 .logo {
   height: 5vw;

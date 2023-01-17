@@ -1,0 +1,22 @@
+.footer {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10px 30px;
+  font-size: 20px;
+  color: $white;
+  opacity: 0.9;
+  padding: 20px 7.5% 80px;
+  font-weight: bold;
+  border-top: 1px solid $lightblue;
+  &__heading {
+    width: 100%;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  &__names {
+    background: linear-gradient(0.1turn, $red, $lightblue);
+    background-clip: text;
+    color: transparent;
+  }
+}
